@@ -17,7 +17,18 @@ public class Utilitarios {
 		for ( double n : numeros) {
 			soma += n;
 		}
-		numeros[0] = 100;
+		//numeros[0] = 100;
+		return soma;
+	}
+	
+	//método que recebe uma qtde variavel de parametros
+	//o operador '...' se chama varargs (argumentos variaveis)
+	public static double calcularSoma(double x, double... numeros) {
+		double soma = x;
+		for ( double n : numeros) {
+			soma += n;
+		}
+		//numeros[0] = 100;
 		return soma;
 	}
 	
