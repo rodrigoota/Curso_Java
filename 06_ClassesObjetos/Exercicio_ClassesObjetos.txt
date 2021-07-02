@@ -1,0 +1,60 @@
+---------------------------------------------------------------------------------
+	Exercicio: Classes e Objetos.
+	
+	7. Neste exercício criaremos 5 classes:
+	
+		Clinica
+		Paciente
+		Tratamento
+		Procedimento
+		Medico
+		
+		Clinica:
+			codigo (int)
+			descricao (String)
+			dataFundacao (Date)
+			pacientes (Paciente[])
+			
+		Paciente:
+			cpf (string)
+			nome (string)
+			dataNascimento (Date)
+			sexo (Sexo)
+			tratamentos (Tratamento[])
+			
+		Tratamento:
+			codigo (int)
+			descricao (string)
+			medico (Medico)
+			procedimentos (Procedimento[])
+			
+		Medico:
+			crm (int)
+			nome (string)
+			especialidade (Especialidade - enum)
+			
+		Procedimento:
+			codigo (int)
+			descricao (string)
+			valor (double)
+			
+	- Em cada classe teremos getters e setters, incluindo um método chamado exibir(), semelhante
+	  ao de cada classe do grupo Funcionario / Empresa / Endereco
+	  
+	- Se a lista de cada item mencionado (Paciente[], Tratamento[], Procedimento[]) for
+	  informada com tamanho zero, lançar uma exceção do tipo IllegalArgumentException.
+	  
+	- Criar uma classe chamada AppClinica, contendo métodos para solicitar dados de cada item,
+	  ou seja, cada objeto.
+	  
+	  No caso de fornecermos dados para as listas (arrays), fazer a pergunta:
+		(Exemplo: Paciente - na criação do objeto Clinica)
+		
+		"Deseja incluir pacientes?" -> sim -> "Quantos pacientes?"
+		
+		
+	- Pacotes:
+	
+		br.org.cremesp.exercicio.aplicacao
+		br.org.cremesp.exercicio.classes
+		br.org.cremesp.exercicio.enumeracoes
