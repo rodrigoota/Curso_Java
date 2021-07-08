@@ -10,14 +10,32 @@ public class Clinica {
 	private String descricao;
 	private Date dataFundacao;
 	private Paciente[] pacientes;
+	
+	private static int CONTADOR = 1;
+	
+	//CONSTRUTORES
+	public Clinica(String descricao) {
+		this.codigo = CONTADOR++;
+		this.setDescricao(descricao);
+	}
+	
+	public Clinica(String descricao, Date dataFundacao) {
+		this(descricao);
+		this.setDataFundacao(dataFundacao);
+	}
+	
+	public Clinica(String descricao, Date dataFundacao, Paciente[] pacientes) {
+		this(descricao, dataFundacao);
+		this.setPacientes(pacientes);
+	}
 
 	public int getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(int codigo) {
-		this.codigo = codigo;
-	}
+//	public void setCodigo(int codigo) {
+//		this.codigo = codigo;
+//	}
 
 	public String getDescricao() {
 		return descricao;

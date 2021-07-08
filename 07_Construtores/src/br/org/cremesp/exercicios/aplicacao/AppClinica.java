@@ -49,10 +49,10 @@ public class AppClinica {
 	
 	private static Clinica getClinica() throws ParseException{
 		DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-		Clinica clinica = new Clinica();
-		clinica.setCodigo(Integer.parseInt(showInputDialog("Informe o código da clínica:")));
-		clinica.setDescricao(showInputDialog("Informe a descrição da clínica:"));
-		clinica.setDataFundacao(df.parse(showInputDialog("Informe a data de fundação (dd/MM/aaaa)")));
+		Clinica clinica = new Clinica(
+				showInputDialog("Informe a descrição da clínica:"),
+				df.parse(showInputDialog("Informe a data de fundação (dd/MM/aaaa)"))
+		);
 		
 		int opcao = showConfirmDialog(null, "Deseja incluir pacientes?", 
 				"Pacientes", 
