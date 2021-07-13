@@ -1,4 +1,6 @@
-package br.org.cremesp.interfaces;
+package br.org.cremesp.classes;
+
+import br.org.cremesp.interfaces.Figura;
 
 public class Retangulo implements Figura, Comparable<Retangulo> {
 	

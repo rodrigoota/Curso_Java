@@ -3,10 +3,11 @@ package br.org.cremesp.aplicacao;
 import java.util.Arrays;
 import java.util.Date;
 
+import br.org.cremesp.classes.DocumentoCpf;
 import br.org.cremesp.classes.Funcionario;
 import br.org.cremesp.classes.Pessoa;
+import br.org.cremesp.classes.Retangulo;
 import br.org.cremesp.enumeracoes.Sexo;
-import br.org.cremesp.interfaces.Retangulo;
 
 public class AppColecoes {
 	public static void main(String[] args) {
@@ -46,11 +47,11 @@ public class AppColecoes {
 		
 		//criando um array de pessoas
 		Pessoa[] pessoas = {
-				new Funcionario("Rangel", new Date(), Sexo.MASCULINO, "Atendente", 4000),
-				new Funcionario("Antonio", new Date(), Sexo.MASCULINO, "Atendente", 4000),
-				new Funcionario("Eduardo", new Date(), Sexo.MASCULINO, "Atendente", 4000),
-				new Funcionario("Fernando", new Date(), Sexo.MASCULINO, "Atendente", 4000),
-				new Funcionario("Benedito", new Date(), Sexo.MASCULINO, "Atendente", 4000),
+				new Funcionario("Rangel", new DocumentoCpf("36615482422"), new Date(), Sexo.MASCULINO, "Atendente", 4000),
+				new Funcionario("Antonio", new DocumentoCpf("36615482422"), new Date(), Sexo.MASCULINO, "Atendente", 4000),
+				new Funcionario("Eduardo", new DocumentoCpf("36615482422"), new Date(), Sexo.MASCULINO, "Atendente", 4000),
+				new Funcionario("Fernando", new DocumentoCpf("36615482422"), new Date(), Sexo.MASCULINO, "Atendente", 4000),
+				new Funcionario("Benedito", new DocumentoCpf("36615482422"), new Date(), Sexo.MASCULINO, "Atendente", 4000),
 		};
 		Arrays.sort(pessoas);
 		

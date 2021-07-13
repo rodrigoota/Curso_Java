@@ -4,6 +4,8 @@ import java.util.Date;
 
 import javax.swing.JOptionPane;
 
+import br.org.cremesp.classes.DocumentoCnpj;
+import br.org.cremesp.classes.DocumentoCpf;
 import br.org.cremesp.classes.Funcionario;
 import br.org.cremesp.classes.Pessoa;
 import br.org.cremesp.enumeracoes.Sexo;
@@ -14,6 +16,7 @@ public class AppPessoaFuncionario {
 		
 		Pessoa pessoa1 = new Funcionario(
 				"Carlos Silva",
+				new DocumentoCnpj("41321548451541"),
 				new Date(),
 				Sexo.MASCULINO,
 				"Analista Junior",
@@ -29,7 +32,7 @@ public class AppPessoaFuncionario {
 		
 		JOptionPane.showMessageDialog(null, pessoa1.exibir());
 		
-		pessoa2 = new Funcionario("Antonio Barcelos");
+		pessoa2 = new Funcionario("Antonio Barcelos", new DocumentoCnpj("41321548451541"));
 		pessoa2.setDataNascimento(new Date());
 		pessoa2.setSexo(Sexo.MASCULINO);
 		

@@ -19,10 +19,14 @@ import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
 
+import br.org.cremesp.classes.DocumentoCnpj;
+import br.org.cremesp.classes.DocumentoCpf;
 import br.org.cremesp.classes.Endereco;
 import br.org.cremesp.classes.Funcionario;
 import br.org.cremesp.classes.Pessoa;
 import br.org.cremesp.enumeracoes.Sexo;
+import br.org.cremesp.interfaces.Documento;
+
 import javax.swing.event.ChangeListener;
 import javax.swing.event.ChangeEvent;
 import java.awt.event.ComponentAdapter;
@@ -44,6 +48,7 @@ public class Janela extends JFrame {
 	private JTextField txtNumero;
 	private JTextField txtCargo;
 	private JTextField txtSalario;
+	private JTextField txtDocumento;
 
 	/**
 	 * Launch the application.
@@ -69,7 +74,7 @@ public class Janela extends JFrame {
 		
 		setTitle("Cadastro de Pessoas");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 389, 480);
+		setBounds(100, 100, 389, 513);
 		setLocationRelativeTo(null);
 		
 		JPanel panelEndereco = new JPanel();
@@ -91,7 +96,7 @@ public class Janela extends JFrame {
 		
 		JPanel panelPessoa = new JPanel();
 		panelPessoa.setBorder(new TitledBorder(null, "Dados da Pessoa:", TitledBorder.LEADING, TitledBorder.TOP, null, Color.BLUE));
-		panelPessoa.setBounds(10, 11, 353, 390);
+		panelPessoa.setBounds(10, 11, 353, 419);
 		contentPane.add(panelPessoa);
 		panelPessoa.setLayout(null);
 		
@@ -106,9 +111,18 @@ public class Janela extends JFrame {
 					Sexo sexo = (Sexo) cmbSexo.getSelectedItem();
 					String cargo = txtCargo.getText();
 					double salario = Double.parseDouble(txtSalario.getText());
+					String documento = txtDocumento.getText();
 					
+					Documento doc;
+					if(documento.length() == 11) {
+						doc = new DocumentoCpf(documento);
+					} else if (documento.length() == 14) {
+						doc = new DocumentoCnpj(documento);
+					} else {
+						throw new NumberFormatException("O documento deve ter 11 ou 14 dígitos");
+					}
 					
-					Pessoa pessoa = new Funcionario(nome, data, sexo, cargo, salario);
+					Pessoa pessoa = new Funcionario(nome, doc, data, sexo, cargo, salario);
 					
 					if (panelEndereco.isVisible()) {
 						String logradouro = txtLogradouro.getText();
@@ -134,7 +148,7 @@ public class Janela extends JFrame {
 				
 			}
 		});
-		btnIncluirPessoa.setBounds(254, 356, 89, 23);
+		btnIncluirPessoa.setBounds(254, 385, 89, 23);
 		panelPessoa.add(btnIncluirPessoa);
 		
 		JLabel lblNewLabel = new JLabel("Nome:");
@@ -168,7 +182,7 @@ public class Janela extends JFrame {
 		
 		panelEndereco.setVisible(false);
 		panelEndereco.setBorder(new TitledBorder(null, "Endere\u00E7o", TitledBorder.LEADING, TitledBorder.TOP, null, Color.BLUE));
-		panelEndereco.setBounds(20, 176, 312, 169);
+		panelEndereco.setBounds(20, 205, 312, 169);
 		panelPessoa.add(panelEndereco);		
 		panelEndereco.setLayout(null);
 		
@@ -220,26 +234,35 @@ public class Janela extends JFrame {
 //					panelEndereco.setVisible(!panelEndereco.isVisible());	
 //			}
 //		});
-		chbEndereco.setBounds(10, 146, 127, 23);
+		chbEndereco.setBounds(10, 175, 127, 23);
 		panelPessoa.add(chbEndereco);
 		
 		JLabel lblNewLabel_2_1 = new JLabel("Cargo:");
-		lblNewLabel_2_1.setBounds(10, 125, 46, 14);
+		lblNewLabel_2_1.setBounds(10, 115, 46, 14);
 		panelPessoa.add(lblNewLabel_2_1);
 		
 		txtCargo = new JTextField();
-		txtCargo.setBounds(89, 119, 86, 20);
+		txtCargo.setBounds(89, 109, 86, 20);
 		panelPessoa.add(txtCargo);
 		txtCargo.setColumns(10);
 		
 		JLabel lblNewLabel_4 = new JLabel("Sal\u00E1rio:");
-		lblNewLabel_4.setBounds(197, 125, 46, 14);
+		lblNewLabel_4.setBounds(199, 112, 46, 14);
 		panelPessoa.add(lblNewLabel_4);
 		
 		txtSalario = new JTextField();
-		txtSalario.setBounds(239, 122, 86, 20);
+		txtSalario.setBounds(241, 109, 86, 20);
 		panelPessoa.add(txtSalario);
 		txtSalario.setColumns(10);
+		
+		JLabel lblNewLabel_2_1_1 = new JLabel("Documento:");
+		lblNewLabel_2_1_1.setBounds(10, 140, 73, 14);
+		panelPessoa.add(lblNewLabel_2_1_1);
+		
+		txtDocumento = new JTextField();
+		txtDocumento.setColumns(10);
+		txtDocumento.setBounds(89, 140, 132, 20);
+		panelPessoa.add(txtDocumento);
 		
 		JButton btnFechar = new JButton("Fechar");
 		btnFechar.addActionListener(new ActionListener() {
@@ -247,7 +270,7 @@ public class Janela extends JFrame {
 				System.exit(0);
 			}
 		});
-		btnFechar.setBounds(142, 412, 89, 23);
+		btnFechar.setBounds(140, 441, 89, 23);
 		contentPane.add(btnFechar);
 		
 

@@ -2,9 +2,9 @@ package br.org.cremesp.aplicacao;
 
 import javax.swing.JOptionPane;
 
-import br.org.cremesp.interfaces.Circulo;
+import br.org.cremesp.classes.Circulo;
+import br.org.cremesp.classes.Retangulo;
 import br.org.cremesp.interfaces.Figura;
-import br.org.cremesp.interfaces.Retangulo;
 
 public class AppFiguras {
 	
