@@ -12,5 +12,16 @@ public class AppCalculo {
 		c1 = (x, y) -> x * y;
 		System.out.println(c1.calcular(1, 10));
 		
+		//comparando com classe interna anônima
+		Calculo c2 = new Calculo() {
+			@Override
+			public double calcular(double x, double y) {
+				return x + y;
+			}
+		};
+		
+		var op2 = c2.calcular(3, 5);
+		System.out.println("op2: " + op2);
+		
 	}
 }
