@@ -5,7 +5,7 @@ public class Curso {
 	private int codigo;
 	private String descricao;
 	private int ch;
-
+	private double preco;
 
 
 	public Curso(int codigo, String descricao, int ch) {
@@ -13,6 +13,11 @@ public class Curso {
 		this.setCodigo(codigo);
 		this.setDescricao(descricao);
 		this.setCh(ch);
+	}
+	
+	public Curso(int codigo, String descricao, int ch, double preco) {
+		this(codigo, descricao, ch);
+		this.setPreco(preco);
 	}
 
 	public int getCodigo() {
@@ -38,12 +43,36 @@ public class Curso {
 	public void setCh(int ch) {
 		this.ch = ch;
 	}
+	
+	public double getPreco() {
+		return preco;
+	}
+
+	public void setPreco(double preco) {
+		this.preco = preco;
+	}
+		
 
 	@Override
 	public String toString() {
 		return this.codigo + " - " +this.descricao;
 	}
-	
-	
-	
+
+	@Override
+	public int hashCode() {
+		return this.getCodigo() + this.getDescricao().hashCode() + this.getCh();
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (obj instanceof Curso) {
+			Curso c = (Curso) obj;
+			if (this.getCh() == c.getCh() && this.getDescricao().equals(c.getDescricao())
+					&& this.getCodigo() == c.getCodigo()) {
+				return true;
+			}
+		}
+		return false;
+	}
+
 }

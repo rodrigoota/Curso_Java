@@ -20,7 +20,6 @@ public class AppSet01 {
 		
 		nomes.forEach(s -> System.out.println(s + " - Hash: " + s.hashCode()));
 
-		
 		nomes.forEach(System.out::println);
 		
 	}
