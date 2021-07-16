@@ -44,23 +44,24 @@ public class Aluno extends Pessoa{
 	
 	public String listarCursos() {
 		StringBuilder sb = new StringBuilder();
+		
 		Formatter fmt = new Formatter();
 		
 		//Cabeçalho
-		var conteudo = fmt.format("%6s %20s %5s %10s%n", "CÓDIGO", "DESCRIÇÃO", "CH", "VALOR");
+		fmt.format("%6s %-20s %-5s %10s%n", "CÓDIGO", "DESCRIÇÃO", "CH", "VALOR");
 		
 		//conteudos
 		for (Curso curso : cursos) {
-			conteudo.format("%6s %20s %5s %10.2f%n", 
+			fmt.format("%-6s %-20s %-5s %10.2f%n", 
 					curso.getCodigo(),
 					curso.getDescricao(),
 					curso.getCh(),
 					curso.getPreco());
 		}
-//		fmt.close();
-//		conteudo.close();
 		
-		sb.append(conteudo.toString());
+		sb.append(fmt.toString());
+		fmt.flush();
+		fmt.close();		
 		return sb.toString();
 	}
 

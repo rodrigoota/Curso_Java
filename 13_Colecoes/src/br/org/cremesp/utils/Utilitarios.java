@@ -1,8 +1,10 @@
 package br.org.cremesp.utils;
 
+import java.util.Collection;
 import java.util.List;
 
 import br.org.cremesp.classes.Aluno;
+import br.org.cremesp.classes.Funcionario;
 import br.org.cremesp.classes.Pessoa;
 
 public final class Utilitarios {
@@ -12,13 +14,23 @@ public final class Utilitarios {
 		
 		pessoas.add(new Aluno("Peter"));
 		
-		int  quantidade =0;
-		for (Pessoa pessoa : pessoas) {
-			if (pessoa instanceof Aluno) {
-				quantidade++;
-			}
-		}
+		int  quantidade = pessoas.size();
+//		for (Pessoa pessoa : pessoas) {
+//			if (pessoa instanceof Aluno) {
+//				quantidade++;
+//			}
+//		}
 		return quantidade;
 	}
+	
+	public static int getPessoas2(List<? extends Pessoa> pessoas) {
+		
+		//não é possível incluir elementos na lista por instabilidade de tipo
+		//pessoas.add(new Aluno("Peter"));
+		pessoas.remove(0);
+		
+		int  quantidade = pessoas.size();
+		return quantidade;
+	}	
 	
 }

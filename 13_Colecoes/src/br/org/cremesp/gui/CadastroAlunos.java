@@ -371,7 +371,7 @@ public class CadastroAlunos extends JFrame {
 		contentPane.add(scrollPane);
 
 		txtListaCursos = new JTextArea();
-		txtListaCursos.setFont(new Font("Calibri", Font.PLAIN, 13));
+		txtListaCursos.setFont(new Font("Consolas", Font.PLAIN, 13));
 		scrollPane.setViewportView(txtListaCursos);
 
 		JButton btnMostrarCursos = new JButton("Mostrar Cursos");
