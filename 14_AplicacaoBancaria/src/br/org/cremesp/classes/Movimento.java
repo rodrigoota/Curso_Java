@@ -14,7 +14,7 @@ public class Movimento {
 	
 	private static int CONTADOR = 1;
 	
-	public Movimento(int codigo, ContaCorrente conta, Tipo tipo, Date data, String historico, double valor) {
+	public Movimento(ContaCorrente conta, Tipo tipo, Date data, String historico, double valor) {
 		super();
 		this.codigo = CONTADOR++;		
 		this.conta = conta;
