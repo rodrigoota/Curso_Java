@@ -1,0 +1,5 @@
+1;Java;100;1000
+2;Flutter;40;500.5
+2;DevOps;50;100
+7;HTML;10;111
+4;SpringBoot;30;123434
